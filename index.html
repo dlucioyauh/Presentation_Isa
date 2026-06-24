@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+html_code = '''<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -9,15 +10,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-primary: #1a1a1a;
+            --color-primary: #5C3A2A;          /* Marrom principal */
+            --color-primary-dark: #3D2418;     /* Marrom escuro */
+            --color-primary-light: #7A5540;    /* Marrom médio */
             --color-gold: #c9a96e;
             --color-gold-light: #d4b87d;
             --color-cream: #faf8f5;
             --color-white: #ffffff;
             --color-sage: #8b9d83;
             --color-sage-light: #a8b8a0;
-            --color-text: #2c2c2c;
-            --color-text-light: #6b6b6b;
+            --color-text: #4A3328;             /* Marrom para texto */
+            --color-text-light: #7D6B5D;       /* Marrom claro para texto secundário */
             --font-serif: 'Playfair Display', serif;
             --font-sans: 'Montserrat', sans-serif;
             --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -59,7 +62,7 @@
             background: rgba(250, 248, 245, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 5%;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 20px rgba(92, 58, 42, 0.08);
         }
 
         .logo {
@@ -479,7 +482,7 @@
         .philosophy-card:hover {
             border-color: rgba(201, 169, 110, 0.2);
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 40px rgba(92, 58, 42, 0.05);
         }
 
         .philosophy-card:hover::before {
@@ -907,8 +910,7 @@
             </div>
             <div class="hero-image">
                 <div class="hero-image-wrapper">
-                    <!-- SUBSTITUIR AQUI: Imagem principal da Isabela (fot.png) -->
-                    <img src="image/qwe.jpg" alt="Isabela Moura">
+                    <img src="image/fot.png" alt="Isabela Moura">
                     <div class="hero-image-border"></div>
                 </div>
             </div>
@@ -929,8 +931,7 @@
             </div>
             <div class="about-grid">
                 <div class="about-image reveal">
-                    <!-- SUBSTITUIR AQUI: Segunda imagem da Isabela (qwe.jpg) -->
-                    <img src="image/fot.png" alt="Isabela Moura Lifestyle">
+                    <img src="image/qwe.jpg" alt="Isabela Moura Lifestyle">
                 </div>
                 <div class="about-content reveal">
                     <p>
@@ -1157,4 +1158,12 @@
     </script>
 
 </body>
-</html>
+</html>'''
+
+# Salvar o arquivo
+output_path = '/mnt/agents/output/index.html'
+with open(output_path, 'w', encoding='utf-8') as f:
+    f.write(html_code)
+
+print(f"Arquivo salvo em: {output_path}")
+print(f"Tamanho: {len(html_code)} caracteres")
