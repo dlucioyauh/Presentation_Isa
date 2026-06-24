@@ -3,254 +3,788 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isabela Moura Doces Saudáveis - Apresentação</title>
+    <title>Isabela Moura | Vida, Propósito & Excelência</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --color-primary: #1a1a1a;
+            --color-gold: #c9a96e;
+            --color-gold-light: #d4b87d;
+            --color-cream: #faf8f5;
+            --color-white: #ffffff;
+            --color-sage: #8b9d83;
+            --color-sage-light: #a8b8a0;
+            --color-text: #2c2c2c;
+            --color-text-light: #6b6b6b;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+            font-family: var(--font-sans);
+            color: var(--color-text);
+            background-color: var(--color-cream);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        .presentation-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+            background: transparent;
         }
 
-        .slide {
-            min-height: 100vh;
-            padding: 60px 40px;
+        nav.scrolled {
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--color-gold);
+            font-style: italic;
+        }
+
+        .nav-links {
             display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
             flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 1.5px;
+            background: var(--color-primary);
+            transition: var(--transition);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
             justify-content: center;
             position: relative;
-            border-bottom: 3px solid #f8f9fa;
+            background: linear-gradient(135deg, var(--color-cream) 0%, #f5f0e8 100%);
+            overflow: hidden;
         }
 
-        .slide-1 {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-            color: white;
-            text-align: center;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
-        .slide-1 h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 157, 131, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
             animation: fadeInUp 1s ease-out;
         }
 
-        .slide-1 .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
-        .slide-1 .contact-info {
-            font-size: 1.1rem;
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .slide-2 {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-        }
-
-        .slide-3 {
-            background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
-        }
-
-        .slide-4 {
-            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
-        }
-
-        .slide-5 {
-            background: linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%);
-        }
-
-        .slide h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #2c3e50;
-            text-align: center;
-            position: relative;
-        }
-
-        .slide h2::after {
-            content: '';
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .feature-card {
-            background: rgba(255,255,255,0.9);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transform: translateY(20px);
-            opacity: 0;
-            animation: slideUp 0.8s ease-out forwards;
-            backdrop-filter: blur(10px);
-        }
-
-        .feature-card:nth-child(2) { animation-delay: 0.2s; }
-        .feature-card:nth-child(3) { animation-delay: 0.4s; }
-        .feature-card:nth-child(4) { animation-delay: 0.6s; }
-
-        .feature-card .icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        .hero-subtitle {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: 1.5rem;
             display: block;
         }
 
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #2c3e50;
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
         }
 
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
+        .hero-title em {
+            font-style: italic;
+            color: var(--color-gold);
         }
 
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 90%;
         }
 
-        .product-card {
-            background: rgba(255,255,255,0.95);
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2.5rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid var(--color-primary);
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
         }
 
-        .product-card::before {
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--color-gold);
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .hero-cta:hover::before {
+            left: 0;
+        }
+
+        .hero-cta span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-cta:hover {
+            border-color: var(--color-gold);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeIn 1.2s ease-out 0.3s both;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(20%) contrast(1.05);
+            transition: var(--transition);
+        }
+
+        .hero-image-wrapper:hover img {
+            filter: grayscale(0%) contrast(1);
+        }
+
+        .hero-image-border {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            bottom: 20px;
+            left: 20px;
+            border: 1px solid var(--color-gold);
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .hero-image-wrapper:hover .hero-image-border {
+            top: -15px;
+            right: -15px;
+            bottom: 15px;
+            left: 15px;
+        }
+
+        .hero-social {
+            position: absolute;
+            bottom: 2rem;
+            left: 5%;
+            display: flex;
+            gap: 1.5rem;
+            z-index: 10;
+        }
+
+        .hero-social a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .hero-social a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-gold);
+            transition: var(--transition);
+        }
+
+        .hero-social a:hover {
+            color: var(--color-gold);
+        }
+
+        .hero-social a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: 8rem 5%;
+            background: var(--color-white);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--color-gold));
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: var(--color-gold);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            filter: grayscale(15%);
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            filter: grayscale(0%);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: -30px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--color-sage);
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .about-image:hover::before {
+            top: 20px;
+            left: -20px;
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+            color: var(--color-text-light);
+            line-height: 2;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .about-signature {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--color-gold);
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        /* ===== PHILOSOPHY SECTION ===== */
+        .philosophy {
+            padding: 8rem 5%;
+            background: var(--color-cream);
+            position: relative;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .philosophy-card {
+            background: var(--color-white);
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 1px solid transparent;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .philosophy-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+            width: 100%;
+            height: 3px;
+            background: var(--color-gold);
+            transform: scaleX(0);
+            transition: var(--transition);
         }
 
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        .philosophy-card:hover {
+            border-color: rgba(201, 169, 110, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
 
-        .product-card .emoji {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            display: block;
+        .philosophy-card:hover::before {
+            transform: scaleX(1);
         }
 
-        .stats-container {
+        .philosophy-icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-gold);
+        }
+
+        .philosophy-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .philosophy-card p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            padding: 8rem 5%;
+            background: var(--color-white);
+        }
+
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .stat-card {
-            background: rgba(255,255,255,0.9);
-            padding: 25px;
-            border-radius: 15px;
+        .service-card {
+            padding: 3rem;
+            border: 1px solid #eee;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-gold);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            border-color: var(--color-gold);
+            background: rgba(201, 169, 110, 0.02);
+        }
+
+        .service-card:hover::after {
+            width: 100%;
+        }
+
+        .service-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: rgba(201, 169, 110, 0.15);
+            font-weight: 300;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* ===== QUOTE SECTION ===== */
+        .quote {
+            padding: 10rem 5%;
+            background: var(--color-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote::before {
+            content: '"';
+            position: absolute;
+            top: 2rem;
+            left: 5%;
+            font-family: var(--font-serif);
+            font-size: 20rem;
+            color: rgba(201, 169, 110, 0.05);
+            line-height: 1;
+        }
+
+        .quote-content {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
-            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #e74c3c;
-            margin-bottom: 10px;
+        .quote-text {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--color-white);
+            line-height: 1.6;
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 2rem;
         }
 
-        .stat-label {
-            color: #666;
+        .quote-author {
+            font-size: 0.85rem;
+            color: var(--color-gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 8rem 5%;
+            background: var(--color-cream);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-description {
             font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            line-height: 1.8;
         }
 
-        .cta-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            padding: 60px 40px;
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 30px;
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
             text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 20px 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            color: var(--color-primary);
+            transition: var(--transition);
         }
 
-        .cta-button:hover {
+        .contact-link:hover {
+            color: var(--color-gold);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
-        .navigation {
-            position: fixed;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-        }
-
-        .nav-dot {
-            width: 12px;
-            height: 12px;
+        .contact-link-icon {
+            width: 60px;
+            height: 60px;
+            border: 1px solid var(--color-gold);
             border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .contact-link:hover .contact-link-icon {
+            background: var(--color-gold);
+            color: var(--color-white);
+        }
+
+        .contact-link span {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--color-text);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-bottom-color: var(--color-gold);
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 1.2rem;
+            left: 0;
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:focus + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: -0.5rem;
+            font-size: 0.75rem;
+            color: var(--color-gold);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            justify-self: center;
+            padding: 1rem 3rem;
+            background: transparent;
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary);
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            margin-top: 1rem;
         }
 
-        .nav-dot.active {
-            background: #fff;
-            transform: scale(1.3);
+        .submit-btn:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
         }
 
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 3rem 5%;
+            background: var(--color-primary);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo span {
+            color: var(--color-gold);
+            font-style: italic;
+        }
+
+        .footer-text {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 1px;
+        }
+
+        /* ===== ANIMATIONS ===== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -262,254 +796,365 @@
             }
         }
 
-        @keyframes slideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        .logo-placeholder {
-            width: 120px;
-            height: 120px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            border: 4px solid rgba(255,255,255,0.3);
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
         }
 
-        @media (max-width: 768px) {
-            .slide {
-                padding: 40px 20px;
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 968px) {
+            .hero-container,
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
-            
-            .slide h2 {
-                font-size: 2rem;
-            }
-            
-            .slide-1 h1 {
+
+            .hero-title {
                 font-size: 2.5rem;
             }
-            
-            .content-grid {
+
+            .philosophy-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-image-wrapper {
+                max-width: 350px;
+            }
+
+            .about-image img {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .quote-text {
+                font-size: 1.4rem;
+            }
+
+            .contact-links {
+                gap: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="presentation-container">
-        <!-- Slide 1: Capa -->
-        <div class="slide slide-1">
-            <div class="logo-placeholder">🧁</div>
-            <h1>Isabela Moura<br>Doces Saudáveis</h1>
-            <p class="tagline">Transformando o prazer em saúde</p>
-            <div class="contact-info">
-                <p>📱 @isabelamouradocessaudaveis</p>
-                <p>📧 isabelamoura.paodemel@gmail.com</p>
-            </div>
-        </div>
 
-        <!-- Slide 2: Quem Somos -->
-        <div class="slide slide-2">
-            <h2>Quem Somos</h2>
-            <div class="content-grid">
-                <div class="feature-card">
-                    <span class="icon">👩‍🍳</span>
-                    <h3>Nossa Fundadora</h3>
-                    <p>Isabela Moura, apaixonada por alimentação saudável e bem-estar, transformou sua paixão em um negócio que impacta vidas.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="icon">🎯</span>
-                    <h3>Nossa Missão</h3>
-                    <p>Proporcionar prazer gastronômico sem comprometer a saúde, criando doces que nutrem corpo e alma.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="icon">💚</span>
-                    <h3>Nossos Valores</h3>
-                    <p>Qualidade, saúde, sustentabilidade e amor em cada receita. Ingredientes naturais e processos artesanais.</p>
-                </div>
-            </div>
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <a href="#" class="logo">Isabela <span>Moura</span></a>
+        <ul class="nav-links">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#filosofia">Filosofia</a></li>
+            <li><a href="#palestras">Palestras</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <div class="mobile-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
+    </nav>
 
-        <!-- Slide 3: Nossos Produtos -->
-        <div class="slide slide-3">
-            <h2>Nossos Produtos</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <span class="emoji">🍰</span>
-                    <h3>Bolos Saudáveis</h3>
-                    <p>Sem açúcar refinado, com farinhas integrais e ingredientes funcionais</p>
-                </div>
-                <div class="product-card">
-                    <span class="emoji">🍫</span>
-                    <h3>Brigadeiros Saudáveis</h3>
-                    <p>Sem lactose, veganos e sem glúten</p>
-                </div>
-                <div class="product-card">
-                    <span class="emoji">🍪</span>
-                    <h3>Cookies Proteicos</h3>
-                    <p>Ricos em fibras, sem conservantes e com sabor irresistível</p>
-                </div>
-                <div class="product-card">
-                    <span class="emoji">🥧</span>
-                    <h3>Tortas Especiais</h3>
-                    <p>Para diabéticos, celíacos e veganos - sem abrir mão do sabor</p>
-                </div>
-                <div class="product-card">
-                    <span class="emoji">🍮</span>
-                    <h3>Sobremesas Veganas</h3>
-                    <p>100% plant-based, nutritivas e deliciosas</p>
-                </div>
-                <div class="product-card">
-                    <span class="emoji">🎂</span>
-                    <h3>Bolos Personalizados</h3>
-                    <p>Para eventos especiais, adaptados às suas necessidades</p>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Bem-vinda ao seu próximo capítulo</span>
+                <h1 class="hero-title">
+                    Vida com <em>propósito</em>,<br>
+                    mente de <em>excelência</em>
+                </h1>
+                <p class="hero-description">
+                    Sou Isabela Moura, palestrante e mentora dedicada a empoderar mulheres 
+                    a viverem com intencionalidade, clareza mental e atendimento com excelência. 
+                    Transformo doces momentos em uma vida doce e significativa.
+                </p>
+                <a href="#contato" class="hero-cta">
+                    <span>Conheça Minha Jornada</span>
+                </a>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <!-- SUBSTITUIR AQUI: Imagem principal da Isabela (fot.png) -->
+                    <img src="image/qwe.jpg" alt="Isabela Moura">
+                    <div class="hero-image-border"></div>
                 </div>
             </div>
         </div>
-
-        <!-- Slide 4: Nossos Resultados -->
-        <div class="slide slide-4">
-            <h2>Nossos Resultados</h2>
-            <div class="stats-container">
-                <div class="stat-card">
-                    <div class="stat-number">3K+</div>
-                    <div class="stat-label">Seguidores Instagram</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Clientes Satisfeitos</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">5+</div>
-                    <div class="stat-label">Eventos Realizados</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Ingredientes Naturais</div>
-                </div>
-            </div>
-            
-            <div class="content-grid" style="margin-top: 50px;">
-                <div class="feature-card">
-                    <span class="icon">⭐</span>
-                    <h3>Avaliação 5 Estrelas</h3>
-                    <p>"Os doces da Isabela mudaram minha relação com sobremesas. Posso comer sem culpa!" - Cliente Maria S.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="icon">🏆</span>
-                    <h3>Reconhecimento</h3>
-                    <p>Destaque na imprensa local e parcerias com nutricionistas renomados da região.</p>
-                </div>
-            </div>
+        <div class="hero-social">
+            <a href="https://www.instagram.com/isabelamouradocessaudaveis/" target="_blank">Instagram</a>
+            <a href="#contato">Email</a>
+            <a href="#palestras">Palestras</a>
         </div>
+    </section>
 
-        <!-- Slide 5: Proposta de Parceria -->
-        <div class="slide slide-5">
-            <h2>Nossa Proposta de Parceria</h2>
-            <div class="content-grid">
-                <div class="feature-card">
-                    <span class="icon">🤝</span>
-                    <h3>O que Oferecemos</h3>
-                    <p>• Produtos premium com ingredientes selecionados<br>
-                    • Personalização total conforme sua necessidade<br>
-                    • Entrega pontual e suporte completo<br>
-                    • Marketing colaborativo nas redes sociais</p>
+    <!-- ABOUT SECTION -->
+    <section class="about" id="sobre">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-tag">Quem Sou</span>
+                <h2 class="section-title">A essência de <em>quem eu sou</em></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <!-- SUBSTITUIR AQUI: Segunda imagem da Isabela (qwe.jpg) -->
+                    <img src="image/fot.png" alt="Isabela Moura Lifestyle">
                 </div>
-                <div class="feature-card">
-                    <span class="icon">🎯</span>
-                    <h3>O que Buscamos</h3>
-                    <p>• Parceiro alinhado com valores de saúde<br>
-                    • Oportunidade de expansão de mercado<br>
-                    • Troca de conhecimentos e experiências<br>
-                    • Crescimento sustentável e mútuo</p>
-                </div>
-                <div class="feature-card">
-                    <span class="icon">📈</span>
-                    <h3>Benefícios da Parceria</h3>
-                    <p>• Acesso a mercado de alimentação saudável<br>
-                    • Produtos diferenciados para seus clientes<br>
-                    • Suporte nutricional especializado<br>
-                    • Flexibilidade em volumes e prazos</p>
+                <div class="about-content reveal">
+                    <p>
+                        Minha jornada começou na cozinha, criando doces que nutrem não apenas o corpo, 
+                        mas também a alma. Ao longo dos anos, descobri que o que realmente me move é 
+                        a conexão humana — a possibilidade de transformar vidas através de conversas 
+                        genuínas, de um olhar atento e de um atendimento que vai além do esperado.
+                    </p>
+                    <p>
+                        Hoje, como palestrante e mentora, compartilho minha filosofia de vida com mulheres 
+                        que, assim como eu, acreditam que a excelência não é um destino, mas um caminho 
+                        diário. Acredito na força da mentalidade positiva, na beleza das pequenas escolhas 
+                        e no poder de uma mulher que se conhece.
+                    </p>
+                    <p>
+                        Meu estilo de vida é uma celebração do equilíbrio: entre o saudável e o prazeroso, 
+                        entre o trabalho e o descanso, entre o ser e o fazer. Convido você a fazer parte 
+                        dessa comunidade de mulheres que escolhem viver com propósito.
+                    </p>
+                    <div class="about-signature">Isabela Moura</div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Call to Action -->
-    <div class="cta-section">
-        <h2 style="color: white; margin-bottom: 20px;">Vamos Conversar?</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 30px;">Estamos prontos para criar uma parceria doce e saudável!</p>
-        <a href="#" class="cta-button">WhatsApp</a>
-        <a href="#" class="cta-button">E-mail</a>
-        <a href="#" class="cta-button">Instagram</a>
-        
-        <div style="margin-top: 40px; opacity: 0.8;">
-            <p>📱 @isabelamouradocessaudaveis</p>
-            <p>📧 contato@isabelamoura.com.br</p>
-            <p>📍 Florianópolis, SC</p>
+    <!-- PHILOSOPHY SECTION -->
+    <section class="philosophy" id="filosofia">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-tag">Minha Filosofia</span>
+                <h2 class="section-title">Pilares de uma vida <em>extraordinária</em></h2>
+            </div>
+            <div class="philosophy-grid">
+                <div class="philosophy-card reveal">
+                    <div class="philosophy-icon">✦</div>
+                    <h3>Vida com Propósito</h3>
+                    <p>
+                        Cada dia é uma oportunidade de alinhar suas ações com seus valores. 
+                        Ajudo mulheres a descobrirem seu "porquê" e a viverem de acordo com ele.
+                    </p>
+                </div>
+                <div class="philosophy-card reveal">
+                    <div class="philosophy-icon">◈</div>
+                    <h3>Mentalidade de Excelência</h3>
+                    <p>
+                        A excelência não é perfeição — é a busca constante pelo melhor. 
+                        Desenvolvo ferramentas para fortalecer a resiliência mental e a autoconfiança.
+                    </p>
+                </div>
+                <div class="philosophy-card reveal">
+                    <div class="philosophy-icon">✧</div>
+                    <h3>Atendimento que Encanta</h3>
+                    <p>
+                        Seja no negócio ou nas relações, o diferencial está nos detalhes. 
+                        Ensino o arte de criar experiências memoráveis através da empatia e da atenção.
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Navigation Dots -->
-    <div class="navigation">
-        <div class="nav-dot active" onclick="scrollToSlide(0)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(1)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(2)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(3)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(4)"></div>
-    </div>
+    <!-- SERVICES SECTION -->
+    <section class="services" id="palestras">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-tag">O que Ofereço</span>
+                <h2 class="section-title">Experiências que <em>transformam</em></h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-number">01</div>
+                    <h3>Palestras de Vida</h3>
+                    <p>
+                        Apresentações inspiradoras sobre autoconhecimento, propósito e a construção 
+                        de uma vida alinhada com seus verdadeiros desejos. Momentos de reflexão 
+                        profunda e conexão genuína.
+                    </p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-number">02</div>
+                    <h3>Mentoria de Mentalidade</h3>
+                    <p>
+                        Acompanhamento personalizado para desenvolver uma mentalidade de abundância, 
+                        superar limitações internas e construir uma base sólida para o sucesso pessoal 
+                        e profissional.
+                    </p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-number">03</div>
+                    <h3>Excelência no Atendimento</h3>
+                    <p>
+                        Treinamentos e consultorias para empresas e profissionais que desejam elevar 
+                        o padrão de seus serviços, criando relacionamentos duradouros com seus clientes.
+                    </p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-number">04</div>
+                    <h3>Workshops para Mulheres</h3>
+                    <p>
+                        Encontros imersivos em grupo, focados em empoderamento feminino, estilo de vida 
+                        saudável e a construção de uma comunidade de mulheres que se apoiam mutuamente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUOTE SECTION -->
+    <section class="quote">
+        <div class="quote-content">
+            <p class="quote-text">
+                "A vida mais doce não é aquela sem desafios, mas aquela vivida com propósito, 
+                clareza e a coragem de ser quem você realmente é."
+            </p>
+            <span class="quote-author">— Isabela Moura</span>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contato">
+        <div class="contact-container">
+            <div class="section-header reveal">
+                <span class="section-tag">Vamos Conversar</span>
+                <h2 class="section-title">Pronta para sua <em>transformação?</em></h2>
+            </div>
+            <p class="contact-description reveal">
+                Seja para uma palestra, mentoria ou simplesmente para trocar ideias sobre vida e propósito, 
+                estou aqui. Vamos construir algo extraordinário juntas.
+            </p>
+            <div class="contact-links reveal">
+                <a href="https://www.instagram.com/isabelamouradocessaudaveis/" target="_blank" class="contact-link">
+                    <div class="contact-link-icon">IG</div>
+                    <span>Instagram</span>
+                </a>
+                <a href="mailto:contato@isabelamoura.com" class="contact-link">
+                    <div class="contact-link-icon">@</div>
+                    <span>Email</span>
+                </a>
+                <a href="https://wa.me/55" class="contact-link">
+                    <div class="contact-link-icon">WA</div>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+            <form class="contact-form reveal" onsubmit="event.preventDefault(); alert('Mensagem enviada! Entrarei em contato em breve.');">
+                <div class="form-group">
+                    <input type="text" id="nome" placeholder=" " required>
+                    <label for="nome">Seu Nome</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Seu Email</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="mensagem" placeholder=" " required></textarea>
+                    <label for="mensagem">Sua Mensagem</label>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">Isabela <span>Moura</span></div>
+        <p class="footer-text">© 2026 Isabela Moura. Todos os direitos reservados. | Vida com Propósito</p>
+    </footer>
 
     <script>
-        function scrollToSlide(index) {
-            const slides = document.querySelectorAll('.slide');
-            slides[index].scrollIntoView({ behavior: 'smooth' });
-            
-            // Update navigation dots
-            document.querySelectorAll('.nav-dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-
-        // Animate cards on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.feature-card, .product-card').forEach(card => {
-            observer.observe(card);
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
-        // Update navigation on scroll
-        window.addEventListener('scroll', () => {
-            const slides = document.querySelectorAll('.slide');
-            const scrollPos = window.scrollY + window.innerHeight / 2;
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
             
-            slides.forEach((slide, index) => {
-                const slideTop = slide.offsetTop;
-                const slideBottom = slideTop + slide.offsetHeight;
-                
-                if (scrollPos >= slideTop && scrollPos <= slideBottom) {
-                    document.querySelectorAll('.nav-dot').forEach((dot, i) => {
-                        dot.classList.toggle('active', i === index);
+            revealElements.forEach((element) => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Check on load
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
         });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '100%';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.background = 'rgba(250, 248, 245, 0.98)';
+            navLinks.style.padding = '2rem';
+            navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+        }
     </script>
+
 </body>
 </html>
